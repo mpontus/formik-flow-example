@@ -1,7 +1,7 @@
 // @flow
 // Higher Order Component
 import React from 'react';
-import { withFormik, type HOC } from 'formik';
+import { withFormik, type FormikHOC } from 'formik';
 
 type Props = {|
   user: {
@@ -10,7 +10,7 @@ type Props = {|
   },
 |};
 
-const enhance: HOC<*, Props> = withFormik({
+const enhance: FormikHOC<*, Props> = withFormik({
   // Transform outer props into form values
   mapPropsToValues: props => ({ email: props.user.email, password: '' }),
   // Add a custom validation function (this can be async too!)

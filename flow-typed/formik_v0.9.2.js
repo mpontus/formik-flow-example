@@ -1,8 +1,8 @@
-declare module 'formik' {
+declare module "formik" {
   declare type UnaryFn<A, R> = (a: A) => R;
   declare type Component<A> = React$ComponentType<A>;
 
-  declare export type HOC<Base, Enhanced> = UnaryFn<
+  declare export type FormikHOC<Base, Enhanced> = UnaryFn<
     Component<Base>,
     Component<Enhanced>
   >;
@@ -28,7 +28,7 @@ declare module 'formik' {
           setSubmitting: (isSubmitting: boolean) => void,
           setStatus: (status: any) => void,
           resetForm: (nextProps?: Enhanced) => void,
-          submitForm: () => void,
+          submitForm: () => void
         }
       ) => void,
       validate?: (
@@ -41,9 +41,9 @@ declare module 'formik' {
       validationSchema?: ((props: Enhanced) => any) | any,
       validateOnChange?: boolean,
       validateOnBlur?: boolean,
-      isInitialValid?: boolean | ((props: Enhanced) => boolean | void),
+      isInitialValid?: boolean | ((props: Enhanced) => boolean | void)
     }
-  ): HOC<
+  ): FormikHOC<
     {
       ...$Exact<Enhanced>,
 
@@ -81,7 +81,7 @@ declare module 'formik' {
       handleChange: (e: SyntheticEvent<EventTarget>) => void,
       handleChangeValue: (name: string, value: any) => void,
       handleBlur: (e: SyntheticEvent<EventTarget>) => void,
-      handleReset: () => void,
+      handleReset: () => void
     },
     Enhanced
   >;
