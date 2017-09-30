@@ -1,6 +1,13 @@
 // @flow
-import React from "react";
-import ReactDOM from "react-dom";
-import Header from "./Header";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './Header';
+import Form from './Form';
 
-ReactDOM.render(<Header title="foo" />, document.getElementById("root"));
+ReactDOM.render(
+  <div>
+    <Header title="Hello world" />
+    <Form user={{ email: 'foo@bar.baz', password: 'secret' }} />
+  </div>,
+  document.getElementById('root')
+);
